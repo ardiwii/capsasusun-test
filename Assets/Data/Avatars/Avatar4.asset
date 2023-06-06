@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15961b78d7c3cac4abb94434b9a911a4, type: 3}
+  m_Name: Avatar4
+  m_EditorClassIdentifier: 
+  defaultFace: {fileID: -1018665845, guid: b328b7614296f6a49921b4a372fc5f4d, type: 3}
+  winFace: {fileID: 439664602, guid: b328b7614296f6a49921b4a372fc5f4d, type: 3}
+  loseFace: {fileID: -1119165162, guid: b328b7614296f6a49921b4a372fc5f4d, type: 3}
