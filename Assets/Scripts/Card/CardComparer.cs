@@ -18,13 +18,13 @@ public class CardComparer : IComparer<Card>
         {
             case SortBy.Value: return x.CompareTo(y);
             case SortBy.Suite: {
-                    if (x.cardValue.suite == y.cardValue.suite)
+                    if (x.CardValue.suite == y.CardValue.suite)
                     {
-                        return x.cardValue.GetHighValue().CompareTo(y.cardValue.GetHighValue());
+                        return x.CardValue.GetHighValue().CompareTo(y.CardValue.GetHighValue());
                     }
                     else
                     {
-                        return x.cardValue.suite.CompareTo(y.cardValue.suite);
+                        return x.CardValue.suite.CompareTo(y.CardValue.suite);
                     }
                 }
             default: return x.CompareTo(y);

@@ -134,7 +134,7 @@ public class BotHand : Hand
         flushCards.Add(cards[0]);
         for (int i = 1; i < cards.Count; i++)
         {
-            if (flushCards[flushCards.Count - 1].cardValue.suite == cards[i].cardValue.suite)
+            if (flushCards[flushCards.Count - 1].CardValue.suite == cards[i].CardValue.suite)
             {
                 flushCards.Add(cards[i]);
 
@@ -150,7 +150,7 @@ public class BotHand : Hand
                         {
                             flushCards.RemoveAt(0);
                         }
-                        if (flushCards[flushCards.Count-1].cardValue.CompareTo(bestFlushCards[bestFlushCards.Count-1].cardValue) > 0)
+                        if (flushCards[flushCards.Count-1].CardValue.CompareTo(bestFlushCards[bestFlushCards.Count-1].CardValue) > 0)
                         {
                             bestFlushCards = new List<Card>(flushCards);
                         }
@@ -179,7 +179,7 @@ public class BotHand : Hand
         lastSameCard.Add(cards[0]);
         for (int i = 1; i < cards.Count; i++)
         {
-            if(cards[i].cardValue.numberValue == lastSameCard[0].cardValue.numberValue)
+            if(cards[i].CardValue.numberValue == lastSameCard[0].CardValue.numberValue)
             {
                 lastSameCard.Add(cards[i]);
                 if(i == cards.Count - 1 && lastSameCard.Count >= 2)
@@ -208,7 +208,7 @@ public class BotHand : Hand
                 bestSet.AddRange(sameCardSets[i]);
                 for (int j = 0; j < cards.Count; j++)
                 {
-                    if(cards[j].cardValue.numberValue != bestSet[0].cardValue.numberValue) //add the filler card
+                    if(cards[j].CardValue.numberValue != bestSet[0].CardValue.numberValue) //add the filler card
                     {
                         bestSet.Insert(0, cards[j]);
                         break;
@@ -249,7 +249,7 @@ public class BotHand : Hand
         //look for two pair or pair
         if(sameCardSets.Count > 1)
         {
-            Debug.Log("two pair, high pair: " + sameCardSets[sameCardSets.Count - 1][0].cardValue.numberValue);
+            Debug.Log("two pair, high pair: " + sameCardSets[sameCardSets.Count - 1][0].CardValue.numberValue);
             //add the best pair and the lowest one, best pair is the one at the last index
             bestSet.AddRange(sameCardSets[0]);
             bestSet.AddRange(sameCardSets[sameCardSets.Count - 1]);
@@ -276,7 +276,7 @@ public class BotHand : Hand
             {
                 straightCards.Add(cards[i]);
             }
-            else if(cards[i].cardValue.numberValue == straightCards[straightCards.Count - 1].cardValue.numberValue)
+            else if(cards[i].CardValue.numberValue == straightCards[straightCards.Count - 1].CardValue.numberValue)
             {
                 //do nothing
             }

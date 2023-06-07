@@ -12,6 +12,7 @@ public class SetupHand : Hand
     [SerializeField] private SetNameDisplay topSetDisplay;
     [SerializeField] private SetNameDisplay midSetDisplay;
     [SerializeField] private SetNameDisplay bottomSetDisplay;
+    [SerializeField] private CardController setupController;
 
     private void OnEnable()
     {
@@ -25,6 +26,7 @@ public class SetupHand : Hand
         topSet.OnSetModified -= TopSet_OnSetModified;
         midSet.OnSetModified -= MidSet_OnSetModified;
         bottomSet.OnSetModified -= BottomSet_OnSetModified;
+        ClearControl();
     }
 
     private void TopSet_OnSetModified(SetType newType, CardValue newValue)
@@ -54,6 +56,7 @@ public class SetupHand : Hand
         for (int i = 0; i < 13; i++)
         {
             Card drawnCard = deck.DrawCard();
+            drawnCard.CardView.OnCardClicked += SetupHand_OnCardClicked;
             cardsInHand.Add(drawnCard);
             if (i < 3)
             {
@@ -71,6 +74,19 @@ public class SetupHand : Hand
         topSet.EvaluateSet();
         midSet.EvaluateSet();
         bottomSet.EvaluateSet();
+    }
+
+    public void ClearControl()
+    {
+        for (int i = 0; i < cardsInHand.Count; i++)
+        {
+            cardsInHand[i].CardView.OnCardClicked -= SetupHand_OnCardClicked;
+        }
+    }
+
+    private void SetupHand_OnCardClicked(Card clickedCard)
+    {
+        setupController.PickCard(clickedCard);
     }
 
     public void SwapMidAndBottom()

@@ -52,7 +52,7 @@ public class CardSet : MonoBehaviour, IComparable<CardSet>
         int pairCount = 0;
         int mostSameChain = 1;
         int currentSameChain = 1;
-        CardValue prevCard = cards[0].cardValue;
+        CardValue prevCard = cards[0].CardValue;
         bool isLowAce = false;
         for (int i = 1; i < cards.Count; i++)
         {
@@ -63,10 +63,10 @@ public class CardSet : MonoBehaviour, IComparable<CardSet>
                     isLowAce = true;
                     isStraight = true;
                 }
-                else isStraight = prevCard.IsOneBefore(cards[i].cardValue);
+                else isStraight = prevCard.IsOneBefore(cards[i].CardValue);
             }
-            isFlush = isFlush && prevCard.suite == cards[i].cardValue.suite;
-            if (prevCard.numberValue == cards[i].cardValue.numberValue)
+            isFlush = isFlush && prevCard.suite == cards[i].CardValue.suite;
+            if (prevCard.numberValue == cards[i].CardValue.numberValue)
             {
                 currentSameChain++;
                 if (currentSameChain > mostSameChain)
@@ -76,19 +76,19 @@ public class CardSet : MonoBehaviour, IComparable<CardSet>
                 if (currentSameChain == 2)
                 {
                     pairCount++;
-                    setValue = cards[i].cardValue;
+                    setValue = cards[i].CardValue;
                 }
                 else if (currentSameChain > 2)
                 {
 
-                    setValue = cards[i].cardValue;
+                    setValue = cards[i].CardValue;
                 }
             }
             else
             {
                 currentSameChain = 1;
             }
-            prevCard = cards[i].cardValue;
+            prevCard = cards[i].CardValue;
         }
         //re-sort the cards for low ace case
         if (isStraight && isLowAce)
@@ -101,19 +101,19 @@ public class CardSet : MonoBehaviour, IComparable<CardSet>
         if (isFlush && isStraight)
         {
             setType = SetType.StraightFlush;
-            setValue = cards[cards.Count - 1].cardValue;
+            setValue = cards[cards.Count - 1].CardValue;
         }
         else if (mostSameChain == 4) setType = SetType.FourOfAKind;
         else if (mostSameChain == 3 && pairCount == 2) setType = SetType.FullHouse;
         else if (isFlush)
         {
             setType = SetType.Flush;
-            setValue = cards[cards.Count - 1].cardValue;
+            setValue = cards[cards.Count - 1].CardValue;
         }
         else if (isStraight)
         {
             setType = SetType.Straight;
-            setValue = cards[cards.Count - 1].cardValue;
+            setValue = cards[cards.Count - 1].CardValue;
         }
         else if (mostSameChain == 3 && pairCount == 1) setType = SetType.ThreeOfAKind;
         else if (mostSameChain == 2 && pairCount == 2) setType = SetType.TwoPair;
@@ -121,7 +121,7 @@ public class CardSet : MonoBehaviour, IComparable<CardSet>
         else
         {
             setType = SetType.HighCard;
-            setValue = cards[cards.Count - 1].cardValue;
+            setValue = cards[cards.Count - 1].CardValue;
         }
         OnSetModified?.Invoke(setType, setValue);
     }

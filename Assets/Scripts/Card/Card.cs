@@ -6,14 +6,17 @@ using System;
 
 public class Card : MonoBehaviour, IComparable<Card>
 {
-    public CardView cardView;
-    public CardValue cardValue;
+    [SerializeField] private CardView cardView;
+    private CardValue cardValue;
     private CardPool cardPool;
     private CardSet currentSet;
 
+    public CardValue CardValue { get => cardValue; }
+    public CardView CardView { get => cardView; }
+
     public void SetCard(CardData data, CardPool pool)
     {
-        cardView.SetSprite(data.cardImage);
+        CardView.SetView(this, data.cardImage);
         cardValue = data.value;
         cardPool = pool;
     }
@@ -25,12 +28,12 @@ public class Card : MonoBehaviour, IComparable<Card>
 
     public int CompareTo(Card other)
     {
-        return cardValue.CompareTo(other.cardValue);
+        return cardValue.CompareTo(other.CardValue);
     }
 
     public bool IsOneBefore(Card other)
     {
-        return cardValue.IsOneBefore(other.cardValue);
+        return cardValue.IsOneBefore(other.CardValue);
     }
 
     public void AddCardToSet(CardSet set)

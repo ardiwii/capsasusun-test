@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 1704238606224648193}
   - component: {fileID: 3795632228015998201}
   - component: {fileID: 1067158135176067007}
-  - component: {fileID: -8558243916082624315}
   - component: {fileID: 928553192550797966}
   m_Layer: 5
   m_Name: Card
@@ -131,9 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardView: {fileID: 1067158135176067007}
-  cardValue:
-    suite: 0
-    numberValue: 0
 --- !u!114 &1067158135176067007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,21 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e03d1ff674795f4ba5aa5e2191fc37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewedCard: {fileID: 0}
   cardImage: {fileID: 909801583103625603}
   pickedOutline: {fileID: 5980437586138141543}
---- !u!114 &-8558243916082624315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320914359946614907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47214a45d0c84674e8aa6c7cfb7d438a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickedCard: {fileID: 3795632228015998201}
 --- !u!222 &928553192550797966
 CanvasRenderer:
   m_ObjectHideFlags: 0

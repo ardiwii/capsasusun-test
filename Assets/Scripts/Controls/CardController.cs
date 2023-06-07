@@ -13,20 +13,20 @@ public class CardController : MonoBehaviour
             if(pickedCard == card)
             {
                 Debug.Log("same card repicked");
-                card.cardView.TogglePicked(false);
+                card.CardView.TogglePicked(false);
                 pickedCard = null;
             }
             else
             {
                 card.SwapCard(pickedCard);
-                pickedCard.cardView.TogglePicked(false);
-                card.cardView.TogglePicked(false);
+                pickedCard.CardView.TogglePicked(false);
+                card.CardView.TogglePicked(false);
                 pickedCard = null;
             }
         }
         else
         {
-            card.cardView.TogglePicked(true);
+            card.CardView.TogglePicked(true);
             pickedCard = card;
         }
     }

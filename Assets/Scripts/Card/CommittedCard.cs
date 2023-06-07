@@ -13,7 +13,7 @@ public class CommittedCard : MonoBehaviour
 
     public void SetCard(Card card)
     {
-        cardSprite = card.cardView.GetCardSprite();
+        cardSprite = card.CardView.GetCardSprite();
         Reveal();
     }
 

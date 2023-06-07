@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public CardController cardController;
     [SerializeField] private CardPool cardPool;
     [SerializeField] private Deck deck;
     [SerializeField] private AvatarSelection avatarSelection;
@@ -14,18 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject avatarSelectUI;
     [SerializeField] GameObject PlayerSetupHandUI;
     [SerializeField] GameObject GameBoardUI;
-
-    public static GameManager instance;
-
-    private void OnEnable()
-    {
-        instance = this;
-    }
-
-    private void OnDisable()
-    {
-        instance = null;
-    }
 
     // Start is called before the first frame update
     void StartGame()
