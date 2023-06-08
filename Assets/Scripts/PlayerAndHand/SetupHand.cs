@@ -78,6 +78,7 @@ public class SetupHand : Hand
 
     public void ClearControl()
     {
+        setupController.ClearSelection();
         for (int i = 0; i < cardsInHand.Count; i++)
         {
             cardsInHand[i].CardView.OnCardClicked -= SetupHand_OnCardClicked;

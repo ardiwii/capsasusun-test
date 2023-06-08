@@ -30,4 +30,13 @@ public class CardController : MonoBehaviour
             pickedCard = card;
         }
     }
+
+    public void ClearSelection()
+    {
+        if(pickedCard != null)
+        {
+            pickedCard.CardView.TogglePicked(false);
+            pickedCard = null;
+        }
+    }
 }
